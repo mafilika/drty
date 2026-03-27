@@ -231,32 +231,65 @@ Call Now
 </section>
 
 <!-- FAQ (AI SEO BOOST) -->
-<section class="py-20 bg-gray-900 px-6 max-w-4xl mx-auto">
+ <section class="py-20 bg-gray-900 px-6 max-w-4xl mx-auto">
 
-<h2 class="text-3xl text-red-700 mb-6">Frequently Asked Questions</h2>
+<h2 class="text-3xl text-red-700 mb-8 text-center">
+Frequently Asked Questions
+</h2>
 
 <div class="space-y-4">
 
-<div>
-<h3 class="font-bold">Where can I buy cheap meat in Johannesburg?</h3>
-<p>Manengi Meat Supply offers affordable bulk meat in Johannesburg.</p>
+<!-- ITEM -->
+<div class="border-b border-gray-700 pb-4">
+<button class="faq-question w-full text-left font-bold text-lg flex justify-between items-center">
+Where can I buy cheap meat in Johannesburg?
+<span>+</span>
+</button>
+
+<div class="faq-answer hidden mt-2 text-gray-300">
+Manengi Meat Supply offers affordable bulk meat in Johannesburg, including meaty bones, wors, and mogodu.
+</div>
 </div>
 
-<div>
-<h3 class="font-bold">Do you sell meat in bulk?</h3>
-<p>Yes, we specialize in bulk supply for homes, vendors, and businesses.</p>
+<!-- ITEM -->
+<div class="border-b border-gray-700 pb-4">
+<button class="faq-question w-full text-left font-bold text-lg flex justify-between items-center">
+Do you supply meat in bulk?
+<span>+</span>
+</button>
+
+<div class="faq-answer hidden mt-2 text-gray-300">
+Yes, we specialize in bulk meat supply for households, vendors, restaurants, and businesses.
+</div>
 </div>
 
-<div>
-<h3 class="font-bold">What meat products do you offer?</h3>
-<p>We supply meaty bones, wors, mogodu, and meat cutting services.</p>
+<!-- ITEM -->
+<div class="border-b border-gray-700 pb-4">
+<button class="faq-question w-full text-left font-bold text-lg flex justify-between items-center">
+What meat products do you sell?
+<span>+</span>
+</button>
+
+<div class="faq-answer hidden mt-2 text-gray-300">
+We sell beef meaty bones, wors (sausages), mogodu (tripe), and also offer meat cutting services.
+</div>
+</div>
+
+<!-- ITEM -->
+<div class="border-b border-gray-700 pb-4">
+<button class="faq-question w-full text-left font-bold text-lg flex justify-between items-center">
+Can I order via WhatsApp?
+<span>+</span>
+</button>
+
+<div class="faq-answer hidden mt-2 text-gray-300">
+Yes, WhatsApp is the fastest way to place your order. Click any "Order Now" button to start.
+</div>
 </div>
 
 </div>
 
 </section>
-
-<!-- FOOTER -->
 <footer class="py-6 text-center text-gray-400">
 © 2026 Manengi Meat Supply | Johannesburg
 </footer>
@@ -274,5 +307,27 @@ entry.target.classList.add("show");
 document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 </script>
 
+ <script>
+document.querySelectorAll(".faq-question").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector("span");
+
+    // Close all others (accordion effect)
+    document.querySelectorAll(".faq-answer").forEach(a => {
+      if(a !== answer) a.classList.add("hidden");
+    });
+
+    document.querySelectorAll(".faq-question span").forEach(i => {
+      if(i !== icon) i.textContent = "+";
+    });
+
+    // Toggle current
+    answer.classList.toggle("hidden");
+    icon.textContent = answer.classList.contains("hidden") ? "+" : "−";
+  });
+});
+ </script>
 </body>
 </html>
