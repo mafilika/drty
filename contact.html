@@ -263,5 +263,27 @@ entry.target.classList.add("show");
 document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 </script>
 
+ <script>
+document.querySelectorAll(".faq-question").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector("span");
+
+    // Close all others (accordion effect)
+    document.querySelectorAll(".faq-answer").forEach(a => {
+      if(a !== answer) a.classList.add("hidden");
+    });
+
+    document.querySelectorAll(".faq-question span").forEach(i => {
+      if(i !== icon) i.textContent = "+";
+    });
+
+    // Toggle current
+    answer.classList.toggle("hidden");
+    icon.textContent = answer.classList.contains("hidden") ? "+" : "−";
+  });
+});
+     </script>
 </body>
 </html>
